@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free 20GB Data — All Networks 🇳🇬</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --y: #FFD000; --y2: #FF8C00;
+  --w: #FFFFFF; --m: #94A3B8;
+  --g: #00E676; --r: #FF4444; --wa: #25D366;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--w);
+  /* Vivid warm gradient background */
+  background: linear-gradient(160deg,
+    #1a0a00 0%,
+    #2d1200 20%,
+    #1a0800 40%,
+    #0d0500 60%,
+    #1a0c00 80%,
+    #2a1000 100%
+  );
+}
+
+/* ── ANTI-COPY ── */
+body { -webkit-user-select:none; user-select:none; }
+
+/* ── LOCK OVERLAY ── */
+#lockOverlay {
+  position:fixed; inset:0; background:#000;
+  display:none; align-items:center; justify-content:center;
+  flex-direction:column; gap:16px; z-index:99999;
+}
+#lockOverlay h2 { color:#ff4444; font-size:20px; }
+#lockOverlay p  { color:#444; font-size:13px; }
+
+/* ── RICH BACKGROUND LAYERS ── */
+.bg1 {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 110% 70% at 50% -10%, rgba(255,180,0,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at -10% 50%, rgba(255,120,0,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 110% 80%, rgba(255,80,0,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,140,0,0.1) 0%, transparent 50%);
+}
+.bg2 {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,180,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,180,0,0.06) 1px, transparent 1px);
+  background-size:35px 35px;
+}
+/* Bright orbs */
+.orb {
+  position:fixed; border-radius:50%;
+  pointer-events:none; z-index:0;
+  filter:blur(80px);
+}
+.orb1 { width:500px; height:500px; top:-100px; left:-150px; background:rgba(255,160,0,0.2); animation:o1 18s ease-in-out infinite alternate; }
+.orb2 { width:400px; height:400px; bottom:-80px; right:-100px; background:rgba(255,80,0,0.15); animation:o2 14s ease-in-out infinite alternate; }
+.orb3 { width:300px; height:300px; top:40%; left:50%; transform:translate(-50%,-50%); background:rgba(255,200,0,0.08); animation:o3 10s ease-in-out infinite alternate; }
+@keyframes o1 { from{transform:translate(0,0)} to{transform:translate(40px,60px)} }
+@keyframes o2 { from{transform:translate(0,0)} to{transform:translate(-30px,-40px)} }
+@keyframes o3 { from{transform:scale(1)} to{transform:scale(1.4)} }
+
+/* ── TICKER ── */
+.ticker { background:var(--y); overflow:hidden; padding:9px 0; position:relative; z-index:10; }
+.ti { display:flex; white-space:nowrap; animation:tickS 20s linear infinite; }
+.ti span { font-size:11px; font-weight:800; letter-spacing:2.5px; text-transform:uppercase; color:#000; padding:0 28px; flex-shrink:0; font-family:'DM Mono',monospace; }
+.ti span::after { content:'◆'; margin-left:28px; opacity:.25; }
+@keyframes tickS { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── PAGE ── */
+.page { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 15px 80px; }
+
+/* ── ANIMATIONS ── */
+@keyframes rise { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes pop  { from{transform:scale(.3) rotate(-10deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.1} }
+@keyframes spin  { to{transform:rotate(360deg)} }
+@keyframes glowP { 0%,100%{box-shadow:0 0 20px var(--nc,rgba(255,208,0,.4)),0 0 60px var(--nc,rgba(255,208,0,.2))} 50%{box-shadow:0 0 50px var(--nc,rgba(255,208,0,.6)),0 0 100px var(--nc,rgba(255,208,0,.3))} }
+@keyframes shimmer { from{background-position:-400px 0} to{background-position:400px 0} }
+@keyframes float  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes shine  { 0%,100%{left:-60%} 50%{left:130%} }
+@keyframes slideIn { from{transform:translateX(-18px);opacity:0} to{transform:translateX(0);opacity:1} }
+
+/* ═══════════════════════════
+   HEADER
+═══════════════════════════ */
+.hdr {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(0,0,0,0.4);
+  border-bottom:1px solid rgba(255,180,0,0.15);
+  backdrop-filter:blur(20px);
+  position:relative; z-index:10;
+}
+.hdr-brand { font-family:'DM Mono',monospace; font-size:13px; font-weight:500; color:var(--y); letter-spacing:2px; }
+.hdr-live  { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--m); font-family:'DM Mono',monospace; }
+.hl-dot    { width:8px; height:8px; border-radius:50%; background:var(--r); box-shadow:0 0 8px var(--r); animation:blink 1s infinite; }
+.hl-num    { color:var(--y); font-weight:700; }
+
+/* ═══════════════════════════
+   STEP 1 — LANDING
+═══════════════════════════ */
+#landing { display:block; }
+
+/* Network tabs */
+.net-tabs {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:10px; padding:22px 0 18px;
+  animation:rise .5s ease both;
+}
+.nt {
+  padding:16px 8px; border-radius:16px;
+  border:2px solid rgba(255,255,255,0.08);
+  background:rgba(0,0,0,0.3);
+  cursor:pointer; text-align:center;
+  transition:all 0.3s; backdrop-filter:blur(10px);
+  position:relative; overflow:hidden;
+}
+.nt.active { border-color:var(--nc,var(--y)); background:rgba(255,255,255,0.06); }
+.nt.active::before { content:'✓'; position:absolute; top:6px; right:8px; font-size:10px; font-weight:800; color:var(--nc,var(--y)); }
+.nt-icon { font-size:30px; display:block; margin-bottom:6px; }
+.nt-name { font-size:14px; font-weight:800; color:rgba(255,255,255,0.4); transition:color 0.3s; letter-spacing:.5px; }
+.nt-sub  { font-size:11px; color:rgba(255,255,255,0.2); font-weight:600; margin-top:2px; font-family:'DM Mono',monospace; }
+.nt.active .nt-name { color:var(--nc,var(--y)); }
+.nt.active .nt-sub  { color:var(--nc,var(--y)); opacity:.6; }
+
+/* Hero */
+.hero { text-align:center; padding:4px 0 18px; animation:rise .5s .06s ease both; }
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(0,0,0,0.4); border:1.5px solid rgba(255,180,0,0.4);
+  border-radius:8px; padding:8px 20px; margin-bottom:20px;
+  backdrop-filter:blur(10px);
+}
+.hb-dot { width:8px; height:8px; border-radius:50%; background:var(--r); box-shadow:0 0 8px var(--r); animation:blink 1s infinite; }
+.hb-txt { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--y); font-family:'DM Mono',monospace; }
+
+.h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(66px,18vw,104px);
+  line-height:.86; letter-spacing:1px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.h1a { display:block; color:#fff; text-shadow:0 2px 20px rgba(255,255,255,0.3); }
+.h1b {
+  display:block; transition:color .4s, text-shadow .4s;
+  color:var(--nc,var(--y));
+  text-shadow: 0 0 20px var(--nc,rgba(255,208,0,.8)), 0 0 60px var(--nc,rgba(255,208,0,.4)), 0 0 100px var(--nc,rgba(255,208,0,.2));
+  -webkit-text-stroke:1px rgba(255,255,255,0.1);
+}
+.h1c { display:block; font-size:.32em; letter-spacing:5px; color:rgba(255,180,0,0.5); margin-top:8px; }
+
+/* Price bar */
+.price-bar {
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  background:rgba(0,0,0,0.4); border:1px solid rgba(255,180,0,0.2);
+  border-radius:14px; padding:16px 22px; margin:0 0 20px;
+  backdrop-filter:blur(10px); animation:rise .5s .1s ease both;
+}
+.pb-from { text-align:center; }
+.pb-from .pf-lbl { font-size:10px; font-weight:700; color:var(--m); letter-spacing:1px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.pb-from .pf-val { font-size:28px; font-weight:800; color:rgba(255,255,255,0.3); text-decoration:line-through; }
+.pb-arr { font-size:28px; color:var(--g); font-weight:700; }
+.pb-to { text-align:center; }
+.pb-to .pt-lbl { font-size:10px; font-weight:700; color:var(--m); letter-spacing:1px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.pb-to .pt-val {
+  font-family:'Bebas Neue',sans-serif; font-size:56px;
+  color:var(--nc,var(--y)); line-height:1;
+  text-shadow:0 0 20px var(--nc,rgba(255,208,0,.5));
+  transition:color .4s, text-shadow .4s;
+}
+.pb-to .pt-val sup { font-size:.45em; vertical-align:top; }
+.pb-badge {
+  background:rgba(0,230,118,0.12); border:1px solid rgba(0,230,118,0.3);
+  color:var(--g); font-size:11px; font-weight:700;
+  padding:6px 12px; border-radius:8px; white-space:nowrap;
+  font-family:'DM Mono',monospace;
+}
+
+/* Main action card */
+.ac {
+  background:rgba(0,0,0,0.4);
+  border:1.5px solid rgba(255,180,0,0.2);
+  border-radius:22px; padding:24px 18px;
+  margin-bottom:14px;
+  backdrop-filter:blur(16px);
+  position:relative; overflow:hidden;
+  animation:rise .5s .15s ease both;
+}
+.ac::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--nc,var(--y)), transparent);
+  background-size:400px 2px; animation:shimmer 3s linear infinite;
+  transition:background .4s;
+}
+
+/* Stats */
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.05); border-radius:14px; overflow:hidden; margin-bottom:22px; }
+.st { background:rgba(0,0,0,0.5); padding:14px 6px; text-align:center; }
+.st-v { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--nc,var(--y)); letter-spacing:1px; line-height:1; transition:color .4s; }
+.st-l { font-size:10px; font-weight:700; color:var(--m); letter-spacing:.6px; text-transform:uppercase; margin-top:3px; font-family:'DM Mono',monospace; }
+
+/* BIG CTA BUTTON */
+.btn-go {
+  width:100%; padding:20px;
+  background:linear-gradient(135deg, var(--nc,var(--y)) 0%, var(--nc2,var(--y2)) 100%);
+  color:#000; border:none; border-radius:16px;
+  font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:3px;
+  cursor:pointer; margin-bottom:16px;
+  transition:transform .15s;
+  animation:glowP 3s ease-in-out infinite;
+  position:relative; overflow:hidden;
+}
+.btn-go::before {
+  content:''; position:absolute; top:-50%; left:-60%;
+  width:30%; height:200%;
+  background:rgba(255,255,255,0.3); transform:skewX(-20deg);
+  animation:shine 3s ease-in-out infinite;
+}
+.btn-go:hover { transform:translateY(-3px); }
+.btn-go:active { transform:scale(.98); }
+
+/* Cross promo */
+.xp { display:flex; flex-direction:column; gap:8px; }
+.xp-lbl { font-size:10px; font-weight:600; color:rgba(255,180,0,0.3); letter-spacing:2px; text-transform:uppercase; font-family:'DM Mono',monospace; padding-left:2px; }
+.xp-btn {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px; padding:12px 14px; cursor:pointer;
+  transition:all .2s; text-decoration:none;
+}
+.xp-btn:hover { background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.15); }
+.xp-badge { font-size:10px; font-weight:800; padding:5px 10px; border-radius:7px; flex-shrink:0; letter-spacing:.5px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.xp-info { flex:1; }
+.xp-title { font-size:14px; font-weight:700; line-height:1.3; }
+.xp-sub   { font-size:11px; color:var(--m); font-weight:600; margin-top:2px; }
+.xp-arr   { font-size:18px; flex-shrink:0; }
+
+.urg { text-align:center; font-size:12px; color:rgba(255,150,0,0.4); margin-top:14px; font-family:'DM Mono',monospace; }
+.urg strong { color:var(--r); }
+
+/* ═══════════════════════════
+   STEP 2 — SCANNING
+═══════════════════════════ */
+#scanSection { display:none; }
+.scan-wrap { text-align:center; padding:70px 20px; animation:rise .5s ease both; }
+.scan-rings { width:100px; height:100px; margin:0 auto 30px; position:relative; }
+.sr-outer { position:absolute; inset:0; border-radius:50%; border:3px solid rgba(255,180,0,0.15); border-top-color:var(--nc,var(--y)); border-right-color:var(--nc2,var(--y2)); animation:spin 1.1s linear infinite; }
+.sr-inner { position:absolute; top:15px; left:15px; right:15px; bottom:15px; border-radius:50%; border:2px solid rgba(255,180,0,0.08); border-bottom-color:var(--nc,var(--y)); animation:spin .7s linear infinite reverse; }
+.sr-core  { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:28px; }
+.scan-wrap h2 { font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:2px; margin-bottom:10px; color:var(--w); }
+.scan-wrap p  { font-size:13px; color:var(--m); line-height:1.7; margin-bottom:32px; font-family:'DM Mono',monospace; }
+.scan-steps { max-width:300px; margin:0 auto; display:flex; flex-direction:column; gap:11px; text-align:left; }
+.ss { display:flex; align-items:center; gap:11px; font-family:'DM Mono',monospace; font-size:12px; color:rgba(255,255,255,0.2); transition:color .3s; }
+.ss.active { color:var(--w); }
+.ss.done   { color:var(--g); }
+.ss-bar { width:8px; height:8px; border-radius:2px; background:#111; flex-shrink:0; transition:all .3s; }
+.ss.active .ss-bar { background:var(--nc,var(--y)); box-shadow:0 0 10px var(--nc,var(--y)); animation:blink .8s infinite; }
+.ss.done   .ss-bar { background:var(--g); box-shadow:0 0 8px var(--g); }
+
+/* ═══════════════════════════
+   STEP 3 — SHARE WALL
+═══════════════════════════ */
+#shareWall { display:none; }
+
+.sw-hero { text-align:center; padding:30px 0 22px; animation:rise .5s ease both; }
+.sw-icon { font-size:62px; display:block; margin-bottom:14px; filter:drop-shadow(0 0 24px var(--nc,var(--y))); animation:float 3s ease-in-out infinite; transition:filter .4s; }
+.sw-hero h2 { font-family:'Bebas Neue',sans-serif; font-size:42px; letter-spacing:2px; color:var(--nc,var(--y)); margin-bottom:8px; text-shadow:0 0 20px rgba(255,180,0,.5); transition:color .4s; }
+.sw-hero p { font-size:15px; color:var(--m); line-height:1.8; max-width:320px; margin:0 auto; }
+.sw-hero p strong { color:var(--w); }
+
+/* WA message preview */
+.wa-preview {
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(37,211,102,0.25);
+  border-radius:16px; padding:18px 18px;
+  margin-bottom:18px;
+  animation:rise .5s .05s ease both;
+  backdrop-filter:blur(10px);
+}
+.wap-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.wap-icon { font-size:26px; flex-shrink:0; }
+.wap-title { font-size:13px; font-weight:700; color:var(--g); }
+.wap-sub   { font-size:11px; color:var(--m); font-weight:600; margin-top:1px; }
+.wap-body  { font-size:14px; color:rgba(255,255,255,0.8); line-height:1.75; font-weight:500; }
+.wap-body .wh { font-weight:800; transition:color .4s; }
+.wap-hint  { display:flex; align-items:center; gap:7px; margin-top:12px; font-size:12px; color:rgba(0,230,118,0.5); font-weight:600; font-family:'DM Mono',monospace; }
+
+/* Progress */
+.prog-card {
+  background:rgba(0,0,0,0.5);
+  border:1.5px solid rgba(255,180,0,0.15);
+  border-radius:20px; padding:22px 18px;
+  margin-bottom:14px; backdrop-filter:blur(16px);
+  animation:rise .5s .1s ease both;
+  transition:border-color .4s;
+}
+.pc-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+.pc-lbl { font-size:11px; font-weight:600; color:rgba(255,180,0,0.3); letter-spacing:2px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.pc-num { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--nc,var(--y)); line-height:1; transition:color .4s; }
+.pc-track { height:12px; background:rgba(0,0,0,0.6); border-radius:100px; overflow:hidden; border:1px solid rgba(255,255,255,0.05); margin-bottom:18px; }
+.pc-fill  { height:100%; background:linear-gradient(90deg,var(--nc,var(--y)),var(--nc2,var(--y2))); border-radius:100px; width:0%; transition:width .7s cubic-bezier(.34,1.56,.64,1), background .4s; }
+
+/* Steps — 5 col */
+.steps5 { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-bottom:22px; }
+.sn { aspect-ratio:1; border-radius:12px; background:rgba(0,0,0,0.5); border:1.5px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:rgba(255,255,255,0.2); font-family:'DM Mono',monospace; transition:all .35s; position:relative; }
+.sn.done { background:rgba(0,230,118,0.1); border-color:rgba(0,230,118,0.35); }
+.sn.done::after { content:'✓'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--g); }
+.sn.done span   { display:none; }
+
+/* WA Share button */
+.btn-wa {
+  width:100%; padding:19px; background:var(--wa); color:#fff; border:none;
+  border-radius:15px; font-family:'Bebas Neue',sans-serif;
+  font-size:30px; letter-spacing:2px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  transition:transform .15s, box-shadow .15s;
+  box-shadow:0 8px 32px rgba(37,211,102,.35); margin-bottom:10px;
+  position:relative; overflow:hidden;
+}
+.btn-wa::before { content:''; position:absolute; top:-50%; left:-60%; width:30%; height:200%; background:rgba(255,255,255,.25); transform:skewX(-20deg); animation:shine 4s ease-in-out infinite; }
+.btn-wa:hover { transform:translateY(-3px); box-shadow:0 12px 44px rgba(37,211,102,.5); }
+.btn-wa:active { transform:scale(.98); }
+
+.sw-hint { text-align:center; font-size:12px; color:rgba(255,180,0,0.25); font-weight:600; font-family:'DM Mono',monospace; margin-bottom:20px; }
+
+/* Hidden counter */
+.ghost { text-align:center; padding:4px 0 22px; color:#100800; font-size:12px; user-select:none; font-family:'DM Mono',monospace; }
+.ghost strong { color:#100800; }
+
+/* Tips grid */
+.tips { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:28px; }
+.tip-c { background:rgba(0,0,0,0.4); border:1px solid rgba(255,180,0,0.08); border-radius:14px; padding:13px 12px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.35); line-height:1.6; }
+.tip-c .ti { font-size:20px; display:block; margin-bottom:6px; }
+
+/* Testimonials */
+.testi-hd { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+.thd-dot  { width:8px; height:8px; border-radius:50%; background:var(--g); animation:blink 1.2s infinite; }
+.thd-txt  { font-size:10px; font-weight:600; color:rgba(255,180,0,0.3); letter-spacing:2px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.testi-feed { display:flex; flex-direction:column; gap:9px; max-height:320px; overflow:hidden; position:relative; }
+.testi-feed::after { content:''; position:absolute; bottom:0; left:0; right:0; height:70px; background:linear-gradient(transparent, #1a0a00); pointer-events:none; }
+.tc { background:rgba(0,0,0,0.4); border:1px solid rgba(255,180,0,0.08); border-radius:14px; padding:14px 14px; display:flex; align-items:flex-start; gap:11px; animation:slideIn .4s ease both; backdrop-filter:blur(8px); }
+.tc-av { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; background:rgba(255,255,255,0.05); }
+.tc-body { flex:1; }
+.tc-hd { font-size:13px; font-weight:700; margin-bottom:3px; display:flex; align-items:center; gap:7px; color:var(--w); }
+.tc-when { font-size:10px; color:var(--m); font-weight:500; font-family:'DM Mono',monospace; }
+.tc-msg  { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; }
+.tc-msg .ok { color:var(--g); font-weight:700; }
+.tc-msg .hl { font-weight:700; transition:color .4s; }
+
+/* ═══════════════════════════
+   STEP 4 — UNLOCK
+═══════════════════════════ */
+#unlockSection { display:none; }
+.unlock { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 0; text-align:center; }
+.unlock-ring { width:130px; height:130px; border-radius:50%; border:3px solid rgba(255,180,0,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; box-shadow:0 0 0 14px rgba(255,180,0,0.04),0 0 0 28px rgba(255,180,0,0.02); animation:glowP 2s ease-in-out infinite; }
+.unlock-icon { font-size:62px; animation:pop .6s cubic-bezier(.34,1.56,.64,1) both; }
+.unlock h2 { font-family:'Bebas Neue',sans-serif; font-size:54px; letter-spacing:2px; color:var(--nc,var(--y)); margin-bottom:10px; text-shadow:0 0 30px rgba(255,180,0,.5); transition:color .4s; }
+.unlock p  { font-size:16px; color:var(--m); line-height:1.7; margin-bottom:34px; max-width:300px; }
+.unlock p strong { color:var(--w); font-size:18px; }
+
+.btn-access {
+  display:block; width:100%; padding:24px;
+  background:linear-gradient(135deg, var(--nc,var(--y)), var(--nc2,var(--y2)));
+  color:#000; border:none; border-radius:20px;
+  font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:3px;
+  cursor:pointer; text-decoration:none; text-align:center;
+  box-shadow:0 12px 50px rgba(255,180,0,.45);
+  animation:glowP 2s ease-in-out infinite;
+  transition:transform .15s; margin-bottom:14px;
+  position:relative; overflow:hidden;
+}
+.btn-access::before { content:''; position:absolute; top:-50%; left:-60%; width:30%; height:200%; background:rgba(255,255,255,.3); transform:skewX(-20deg); animation:shine 2.5s ease-in-out infinite; }
+.btn-access:hover { transform:translateY(-4px); }
+.un { font-size:12px; color:rgba(255,180,0,0.25); font-family:'DM Mono',monospace; }
+
+/* TOAST */
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:rgba(0,0,0,0.95); border:1.5px solid var(--nc,var(--y)); color:var(--nc,var(--y)); padding:12px 22px; border-radius:100px; font-size:13px; font-weight:700; transition:transform .45s cubic-bezier(.34,1.56,.64,1), border-color .4s, color .4s; z-index:9999; white-space:nowrap; font-family:'DM Mono',monospace; box-shadow:0 6px 24px rgba(255,180,0,.2); }
+.toast.show { transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- DOMAIN LOCK -->
+<div id="lockOverlay">
+  <h2>⚠️ Unauthorized Access</h2>
+  <p>This page only works at the official link.</p>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-brand">NetworkCodes.ng</div>
+  <div class="hdr-live"><div class="hl-dot"></div><span class="hl-num" id="liveNum">94,821</span> live now</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ti">
+    <span id="tk1">MTN FREE 20GB — ₦0 CODE</span>
+    <span>ALL NETWORKS — CONFIRMED WORKING TODAY</span>
+    <span>SHARE TO UNLOCK — EXPIRES SOON</span>
+    <span>VERIFIED & TRUSTED BY 94K+ NIGERIANS</span>
+    <span id="tk2">MTN FREE 20GB — ₦0 CODE</span>
+    <span>ALL NETWORKS — CONFIRMED WORKING TODAY</span>
+    <span>SHARE TO UNLOCK — EXPIRES SOON</span>
+    <span>VERIFIED & TRUSTED BY 94K+ NIGERIANS</span>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ══ STEP 1 ══ -->
+<div id="landing">
+
+  <!-- Network tabs -->
+  <div class="net-tabs">
+    <div class="nt mtn-t active" onclick="sw('mtn')">
+      <span class="nt-icon">🟡</span>
+      <div class="nt-name">MTN</div>
+      <div class="nt-sub">20GB FREE</div>
+    </div>
+    <div class="nt air-t" onclick="sw('airtel')">
+      <span class="nt-icon">🔴</span>
+      <div class="nt-name">AIRTEL</div>
+      <div class="nt-sub">20GB FREE</div>
+    </div>
+    <div class="nt glo-t" onclick="sw('glo')">
+      <span class="nt-icon">🟢</span>
+      <div class="nt-name">GLO</div>
+      <div class="nt-sub">20GB FREE</div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge"><div class="hb-dot"></div><span class="hb-txt" id="hTag">MTN CODE — VERIFIED TODAY</span></div>
+    <h1 class="h1">
+      <span class="h1a">20GB Data</span>
+      <span class="h1b" id="h1b">FOR ₦0</span>
+      <span class="h1c">// The code they don't want you to know //</span>
+    </h1>
+  </div>
+
+  <!-- Price -->
+  <div class="price-bar">
+    <div class="pb-from">
+      <div class="pf-lbl">Normal Price</div>
+      <div class="pf-val" id="pbOld">₦6,000</div>
+    </div>
+    <div class="pb-arr">→</div>
+    <div class="pb-to">
+      <div class="pt-lbl">With This Code</div>
+      <div class="pt-val"><sup>₦</sup>0</div>
+    </div>
+    <div class="pb-badge">✓ REAL</div>
+  </div>
+
+  <!-- Action card -->
+  <div class="ac">
+    <div class="stats">
+      <div class="st"><div class="st-v" id="stCount">94K+</div><div class="st-l">Got It</div></div>
+      <div class="st"><div class="st-v">20GB</div><div class="st-l">Free</div></div>
+      <div class="st"><div class="st-v">₦0</div><div class="st-l">Cost</div></div>
+    </div>
+
+    <button class="btn-go" onclick="startScan()">⚡ GET THE CODE NOW</button>
+
+    <div class="xp" id="xp">
+      <div class="xp-lbl">// Also available for //</div>
+    </div>
+  </div>
+
+  <div class="urg">⚠ <strong>Code expires when this session ends.</strong> Don't close this page.</div>
+
+</div><!-- /landing -->
+
+<!-- ══ STEP 2 ══ -->
+<div id="scanSection">
+  <div class="scan-wrap">
+    <div class="scan-rings">
+      <div class="sr-outer"></div>
+      <div class="sr-inner"></div>
+      <div class="sr-core">📡</div>
+    </div>
+    <h2>SCANNING NETWORK...</h2>
+    <p>Connecting to <span id="scanNet">MTN</span> private server...</p>
+    <div class="scan-steps">
+      <div class="ss" id="sl1"><div class="ss-bar"></div>AUTH: connecting to network</div>
+      <div class="ss" id="sl2"><div class="ss-bar"></div>SCAN: finding data pool</div>
+      <div class="ss" id="sl3"><div class="ss-bar"></div>CHECK: verifying code</div>
+      <div class="ss" id="sl4"><div class="ss-bar"></div>READY: building 20GB package</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 3 ══ -->
+<div id="shareWall">
+
+  <div class="sw-hero">
+    <span class="sw-icon">🔐</span>
+    <h2>CODE IS READY!</h2>
+    <p>Share with <strong>10 WhatsApp contacts</strong> to unlock your <strong>free 20GB</strong> immediately. Your contacts get the same benefit.</p>
+  </div>
+
+  <!-- WA Message Preview -->
+  <div class="wa-preview">
+    <div class="wap-head">
+      <span class="wap-icon">💬</span>
+      <div>
+        <div class="wap-title">Message Your Contacts Will Receive</div>
+        <div class="wap-sub">WhatsApp · Sending to 10 contacts</div>
+      </div>
+    </div>
+    <div class="wap-body" id="wapBody">
+      😭 Someone sent me this <span class="wh" id="wapHL">MTN</span> code and I got <strong>20GB completely free!</strong><br><br>
+      I thought it was a lie but I tried it and the data came in immediately 🔥<br><br>
+      Get yours before they remove it 👇<br>
+      <strong style="color:var(--y)">network-codes.vercel.app</strong><br><br>
+      ⚡ Takes 2 minutes. ₦0 cost!
+    </div>
+    <div class="wap-hint"><span>👆</span> This is what goes to your contacts when you tap Share</div>
+  </div>
+
+  <div class="prog-card">
+    <div class="pc-top">
+      <span class="pc-lbl">// shares_done</span>
+      <span class="pc-num" id="progNum">0/10</span>
+    </div>
+    <div class="pc-track"><div class="pc-fill" id="progFill"></div></div>
+
+    <div class="steps5" id="stepsG"></div>
+
+    <button class="btn-wa" onclick="doShare()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      SHARE NOW — <span id="swBtn">0</span>/10
+    </button>
+    <p class="sw-hint">// tap each time you share to a new contact //</p>
+  </div>
+
+  <!-- Hidden counter -->
+  <div class="ghost"><strong id="ghostNum">94,821</strong> accessed this today</div>
+
+  <!-- Tips -->
+  <div class="tips">
+    <div class="tip-c"><span class="ti">⚡</span>WhatsApp opens instantly. Send to different contacts each time.</div>
+    <div class="tip-c"><span class="ti">🔓</span>Unlocks automatically after 10 shares. No extra steps.</div>
+    <div class="tip-c"><span class="ti">🤝</span>Your contacts also get free data. Share generously!</div>
+    <div class="tip-c"><span class="ti">📶</span>Data arrives within 60 seconds of using the code.</div>
+  </div>
+
+  <!-- Testimonials -->
+  <div>
+    <div class="testi-hd"><div class="thd-dot"></div><div class="thd-txt">// live activity //</div></div>
+    <div class="testi-feed" id="testiFeed"></div>
+  </div>
+
+</div><!-- /shareWall -->
+
+<!-- ══ STEP 4 ══ -->
+<div id="unlockSection">
+  <div class="unlock">
+    <div class="unlock-ring"><span class="unlock-icon">🏆</span></div>
+    <h2>ACCESS GRANTED!</h2>
+    <p>Your free <strong>20GB code</strong> is ready. Tap the button — it expires in minutes.</p>
+    <a class="btn-access" id="accessBtn" href="#" target="_blank">GET THE CODE NOW 🔑</a>
+    <p class="un">// free · ₦0 · no subscription //</p>
+  </div>
+</div>
+
+</div><!-- /page -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════
+   DOMAIN LOCK
+══════════════════════════════════════ */
+(function(){
+  const OK = ['network-codes.vercel.app','localhost','127.0.0.1'];
+  if(!OK.some(d => location.hostname === d || location.hostname.endsWith('.'+d))){
+    document.getElementById('lockOverlay').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+})();
+
+/* ══════════════════════════════════════
+   ANTI-COPY
+══════════════════════════════════════ */
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if(e.key==='F12'||(e.ctrlKey&&['u','U','s','S'].includes(e.key))||(e.ctrlKey&&e.shiftKey&&['i','I','j','J','c','C'].includes(e.key))){
+    e.preventDefault();
+  }
+});
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('cut',  e => e.preventDefault());
+
+/* ══════════════════════════════════════
+   CONFIG
+══════════════════════════════════════ */
+const SITE = 'https://network-codes.vercel.app';
+const AFF  = 'https://omg10.com/4/10646024';   // affiliate — all networks
+const BACK = 'https://omg10.com/4/10846316';   // backtrap
+
+const REQUIRED = 10;
+
+/* Network data */
+const N = {
+  mtn: {
+    name:'MTN', c:'#FFD000', c2:'#FF8C00',
+    nc:'rgba(255,208,0,0.4)',
+    oldPrice:'₦6,000',
+    tag:'MTN CODE — VERIFIED TODAY',
+    waMsg:`😭 Someone sent me this MTN code and I got 20GB completely free!\n\nI thought it was a lie but I tried it and the data came in immediately 🔥\n\nGet yours before they remove it 👇\n${SITE}\n\n⚡ Takes 2 minutes. ₦0 cost!`,
+    testis:[
+      {av:'👩🏾',name:'Ada C.',when:'1m ago',msg:`Dialled the code and <span class='ok'>20GB landed immediately!</span> Not a kobo deducted 😭🙏`},
+      {av:'👩🏽',name:'Pearl O.',when:'4m ago',msg:`Got <span class='hl'>20GB on MTN for free!</span> Already forwarded to my family group 🔥`},
+      {av:'👩🏿',name:'Peace E.',when:'8m ago',msg:`This is real! <span class='ok'>Data came in under 30 seconds.</span> MTN don't know 😂`},
+      {av:'👨🏾',name:'Tunde A.',when:'13m ago',msg:`<span class='hl'>20GB for ₦0.</span> No deduction at all! Share this everywhere`},
+      {av:'👩🏾',name:'Chioma N.',when:'19m ago',msg:`Shared 10 times and unlocked. <span class='ok'>Data confirmed.</span> 😭❤️`},
+      {av:'👨🏿',name:'Bello M.',when:'25m ago',msg:`Abeg just try. <span class='hl'>It actually works!</span> 20GB balance untouched 😂`},
+    ]
+  },
+  airtel: {
+    name:'Airtel', c:'#FF2222', c2:'#FF6600',
+    nc:'rgba(255,34,34,0.4)',
+    oldPrice:'₦7,000',
+    tag:'AIRTEL CODE — WORKING RIGHT NOW',
+    waMsg:`😭 Someone sent me this Airtel code and I got 20GB completely free!\n\nI thought it was a lie but I tried it and the data came in immediately 🔥\n\nGet yours before they remove it 👇\n${SITE}\n\n⚡ Takes 2 minutes. ₦0 cost!`,
+    testis:[
+      {av:'👩🏾',name:'Funmi A.',when:'2m ago',msg:`Airtel gave me <span class='ok'>20GB completely free!</span> Didn't believe it at first 😭`},
+      {av:'👨🏾',name:'Emeka J.',when:'6m ago',msg:`Was about to buy data. Tried this — <span class='hl'>saved ₦7,000.</span> Share! 🔥`},
+      {av:'👩🏿',name:'Ngozi K.',when:'11m ago',msg:`Real and working. <span class='ok'>20GB in 20 seconds flat.</span> 😭`},
+      {av:'👩🏾',name:'Sola B.',when:'17m ago',msg:`Don't sleep on this. <span class='hl'>20GB free on Airtel.</span> 🙏`},
+      {av:'👨🏿',name:'Femi K.',when:'23m ago',msg:`My Airtel got <span class='ok'>20GB instantly!</span> God bless whoever shared 🙌`},
+      {av:'👩🏽',name:'Amaka T.',when:'29m ago',msg:`Free data on Airtel! <span class='hl'>Works 100%.</span> 🔥`},
+    ]
+  },
+  glo: {
+    name:'Glo', c:'#00CC55', c2:'#00FF88',
+    nc:'rgba(0,204,85,0.4)',
+    oldPrice:'₦5,500',
+    tag:'GLO CODE — CONFIRMED WORKING',
+    waMsg:`😭 Someone sent me this Glo code and I got 20GB completely free!\n\nI thought it was a lie but I tried it and the data came in immediately 🔥\n\nGet yours before they remove it 👇\n${SITE}\n\n⚡ Takes 2 minutes. ₦0 cost!`,
+    testis:[
+      {av:'👩🏾',name:'Blessing U.',when:'1m ago',msg:`Glo gave me <span class='ok'>20GB absolutely free!</span> Code worked immediately 😭🙏`},
+      {av:'👨🏾',name:'Chidi O.',when:'5m ago',msg:`Never seen anything like this. <span class='hl'>20GB for ₦0 on Glo!</span> ✅`},
+      {av:'👩🏿',name:'Kemi A.',when:'10m ago',msg:`Shared 10 times, unlocked. <span class='ok'>Data in 15 seconds.</span> 🔥`},
+      {av:'👩🏽',name:'Yetunde F.',when:'16m ago',msg:`Me and my husband both got <span class='hl'>20GB each on Glo!</span> 😂`},
+      {av:'👨🏿',name:'Sunday O.',when:'22m ago',msg:`Real o. <span class='ok'>20GB on Glo line.</span> Don't miss! 🙌`},
+      {av:'👩🏾',name:'Adaeze P.',when:'28m ago',msg:`Finally free data on Glo! <span class='hl'>100% working.</span> 😭❤️`},
+    ]
+  }
+};
+
+/* ══ STATE ══ */
+let curNet = 'mtn';
+let shares = 0;
+let testiIdx = 0;
+let testiTimer = null;
+let cnt = 94821;
+
+/* ══ LIVE COUNTER ══ */
+setInterval(()=>{
+  cnt += Math.floor(Math.random()*4)+1;
+  const f = cnt.toLocaleString('en-NG');
+  ['liveNum','ghostNum'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=f;});
+  const sc=document.getElementById('stCount');if(sc)sc.textContent=Math.floor(cnt/1000)+'K+';
+}, Math.random()*2000+1800);
+
+/* ══ SWITCH NETWORK ══ */
+function sw(net){
+  curNet = net;
+  const cfg = N[net];
+  shares = 0;
+
+  // CSS vars
+  const ds = document.documentElement.style;
+  ds.setProperty('--nc',  cfg.c);
+  ds.setProperty('--nc2', cfg.c2);
+
+  // Active pill
+  document.querySelectorAll('.nt').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.'+net+'-t').classList.add('active');
+
+  // Text updates
+  document.getElementById('hTag').textContent   = cfg.tag;
+  document.getElementById('pbOld').textContent  = cfg.oldPrice;
+  document.getElementById('tk1').textContent    = `${cfg.name} FREE 20GB — ₦0 CODE`;
+  document.getElementById('tk2').textContent    = `${cfg.name} FREE 20GB — ₦0 CODE`;
+
+  // WA preview
+  document.getElementById('wapHL').textContent  = cfg.name;
+  document.getElementById('wapHL').style.color  = cfg.c;
+
+  // Share wall
+  buildXPromo(net);
+}
+
+function buildXPromo(active){
+  const wrap = document.getElementById('xp');
+  wrap.innerHTML = '<div class="xp-lbl">// Also available for //</div>';
+  Object.entries(N).forEach(([key,cfg])=>{
+    if(key===active)return;
+    const d = document.createElement('div');
+    d.className = 'xp-btn';
+    d.onclick = ()=>sw(key);
+    d.innerHTML = `
+      <div class="xp-badge" style="background:${cfg.c};color:#000;">${cfg.name}</div>
+      <div class="xp-info">
+        <div class="xp-title" style="color:${cfg.c}">Free 20GB on ${cfg.name} — ₦0</div>
+        <div class="xp-sub">Tap to switch and get your code</div>
+      </div>
+      <div class="xp-arr" style="color:${cfg.c}">→</div>`;
+    wrap.appendChild(d);
+  });
+}
+
+/* ══ BACKTRAP — fires on back navigation ══ */
+(function(){
+  history.pushState(null, '', location.href);
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', function(){
+    history.pushState(null, '', location.href);
+    window.location.href = BACK;
+  });
+})();
+
+/* ══ SCAN ══ */
+function startScan(){
+  document.getElementById('landing').style.display    = 'none';
+  document.getElementById('scanSection').style.display = 'block';
+  document.getElementById('scanNet').textContent = N[curNet].name;
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  const steps = ['sl1','sl2','sl3','sl4'];
+  let i=0;
+  function tick(){
+    if(i>0){const p=document.getElementById(steps[i-1]);p.classList.remove('active');p.classList.add('done');}
+    if(i<steps.length){document.getElementById(steps[i]).classList.add('active');i++;setTimeout(tick,900);}
+    else setTimeout(goWall,500);
+  }
+  tick();
+}
+
+/* ══ SHARE WALL ══ */
+function goWall(){
+  document.getElementById('scanSection').style.display = 'none';
+  document.getElementById('shareWall').style.display   = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+  buildSteps(); buildTestis(); startLiveTestis();
+}
+
+function buildSteps(){
+  document.getElementById('progNum').textContent = `0/${REQUIRED}`;
+  document.getElementById('swBtn').textContent   = '0';
+  const g = document.getElementById('stepsG');
+  g.innerHTML = '';
+  for(let i=1;i<=REQUIRED;i++){
+    g.innerHTML += `<div class="sn" id="sn${i}"><span>${i}</span></div>`;
+  }
+}
+
+/* ══ TESTIS ══ */
+function mkTC(t){
+  return `<div class="tc-av">${t.av}</div><div class="tc-body"><div class="tc-hd">${t.name}<span class="tc-when">${t.when}</span></div><div class="tc-msg">${t.msg}</div></div>`;
+}
+function buildTestis(){
+  const feed = document.getElementById('testiFeed');
+  const list = N[curNet].testis;
+  feed.innerHTML = '';
+  list.slice(0,5).forEach((t,i)=>{
+    const d = document.createElement('div');
+    d.className = 'tc'; d.style.animationDelay = `${i*.07}s`;
+    d.innerHTML = mkTC(t); feed.appendChild(d);
+  });
+  testiIdx = 5;
+}
+function startLiveTestis(){
+  if(testiTimer)clearInterval(testiTimer);
+  testiTimer = setInterval(()=>{
+    const list = N[curNet].testis;
+    if(testiIdx>=list.length)testiIdx=0;
+    const t = list[testiIdx++];
+    const feed = document.getElementById('testiFeed');
+    const d = document.createElement('div');
+    d.className='tc'; d.innerHTML=mkTC({...t,when:'just now'});
+    feed.insertBefore(d,feed.firstChild);
+    while(feed.children.length>7)feed.removeChild(feed.lastChild);
+  },8000);
+}
+
+/* ══ SHARE — direct WA text ══ */
+function doShare(){
+  const msg = N[curNet].waMsg;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`,'_blank');
+  setTimeout(countShare, 1800);
+}
+
+function countShare(){
+  if(shares>=REQUIRED)return;
+  shares++;
+  document.getElementById('progFill').style.width = `${(shares/REQUIRED)*100}%`;
+  document.getElementById('progNum').textContent  = `${shares}/${REQUIRED}`;
+  document.getElementById('swBtn').textContent    = shares;
+  const node = document.getElementById('sn'+shares);
+  if(node)node.classList.add('done');
+  showToast(`✅ ${shares}/${REQUIRED} shares counted!`);
+  if(shares>=REQUIRED)setTimeout(unlock,900);
+}
+
+/* ══ UNLOCK ══ */
+function unlock(){
+  if(testiTimer)clearInterval(testiTimer);
+  document.getElementById('shareWall').style.display    = 'none';
+  document.getElementById('unlockSection').style.display = 'block';
+  document.getElementById('accessBtn').href = AFF;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══ TOAST ══ */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+/* ══ INIT ══ */
+window.addEventListener('load',()=> sw('mtn'));
+</script>
+</body>
+</html>
